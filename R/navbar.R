@@ -45,7 +45,92 @@ render_navbar_links <- function(x, depth = 0L) {
   if (depth != 0L) {
     x <- lapply(x, tweak)
   }
-  rmarkdown::navbar_links_html(x)
+
+  navbar_links_html(x)
+}
+
+navbar_links_html <- function(links) {
+  as.character(navbar_links_tags(links))
+}
+
+#' @importFrom htmltools tags tagList
+navbar_links_tags <- function(links, depth = 0) {
+  if (is.null(links)) {
+    return(htmltools::tagList())
+  }
+
+  tags <- lapply(links, function(x) {
+    if (!is.null(x$menu)) {
+      menu_class <- "dropdown"
+      link_text <- navbar_link_text(x, " ", tags$span(class = "caret"))
+
+      submenuLinks <- navbar_links_tags(x$menu, depth = depth + 1)
+
+      tags$li(
+        class = "nav-item dropdown",
+        tags$a(
+          href = "#",
+          class = "nav-link dropdown-toggle",
+          `data-toggle` = "dropdown",
+          role = "button",
+          `aria-expanded` = "false",
+          link_text
+        ),
+        tags$ul(
+          class = "dropdown-menu dropdown-menu-right",
+          submenuLinks
+        )
+      )
+    } else if (!is.null(x$text) && grepl("^\\s*-{3,}\\s*$", x$text)) {
+      tags$li(class = "dropdown-divider")
+    } else if (!is.null(x$text) && is.null(x$href)) {
+      tags$li(
+        tags$h6(class = "dropdown-header", x$text)
+      )
+    } else if (depth > 0) {
+      textTags <- navbar_link_text(x)
+      tags$a(
+        class = "dropdown-item",
+        href = x$href,
+        textTags
+      )
+    } else {
+      textTags <- navbar_link_text(x)
+      tags$li(
+        class = "nav-item",
+        tags$a(
+          class = "nav-link",
+          href = x$href,
+          textTags
+        )
+      )
+    }
+  })
+
+  tagList(tags)
+}
+
+navbar_link_text <- function(x, ...) {
+  if (is.null(x$icon)) {
+    return(tagList(x$text, ...))
+  }
+
+  split <- strsplit(x$icon, "-")
+
+  if (length(split[[1]]) > 1) {
+    iconset <- split[[1]][[1]]
+  } else {
+    iconset <- ""
+  }
+
+  tagList(
+    tags$span(
+      class = paste(iconset, x$icon)
+    ),
+    " ",
+    x$text,
+    ...
+  )
 }
 
 # Default navbar ----------------------------------------------------------

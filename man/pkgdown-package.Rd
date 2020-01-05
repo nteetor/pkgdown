@@ -31,6 +31,7 @@ Authors:
 
 Other contributors:
 \itemize{
+  \item Nathan Teetor [contributor]
   \item RStudio [copyright holder, funder]
 }
 

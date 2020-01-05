@@ -75,6 +75,9 @@ copy_assets <- function(pkg = ".") {
   if (!is.null(template$package)) {
     copy_asset_dir(pkg, path_package_pkgdown(template$package, "assets"))
   }
+
+  # Copy assets from yonder
+  copy_asset_dir(pkg, fs::path_package("yonder", "www", "yonder", "css"))
 }
 
 copy_asset_dir <- function(pkg, from_dir, file_regexp = NULL) {

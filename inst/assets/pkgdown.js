@@ -2,19 +2,7 @@
 (function($) {
   $(function() {
 
-    $('.navbar-fixed-top').headroom();
-
-    $('body').css('padding-top', $('.navbar').height() + 10);
-    $(window).resize(function(){
-      $('body').css('padding-top', $('.navbar').height() + 10);
-    });
-
-    $('body').scrollspy({
-      target: '#sidebar',
-      offset: 60
-    });
-
-    $('[data-toggle="tooltip"]').tooltip();
+    $("[data-toggle='tooltip']").tooltip();
 
     var cur_path = paths(location.pathname);
     var links = $("#navbar ul li a");
@@ -59,7 +47,7 @@
     if (needle.length > haystack.length)
       return(-1);
 
-    // Special case for length-0 haystack, since for loop won't run
+    // Special case for length-0 haystack, since for loop won"t run
     if (haystack.length === 0) {
       return(needle.length === 0 ? 0 : -1);
     }
@@ -75,15 +63,15 @@
   /* Clipboard --------------------------*/
 
   function changeTooltipMessage(element, msg) {
-    var tooltipOriginalTitle=element.getAttribute('data-original-title');
-    element.setAttribute('data-original-title', msg);
-    $(element).tooltip('show');
-    element.setAttribute('data-original-title', tooltipOriginalTitle);
+    var tooltipOriginalTitle=element.getAttribute("data-original-title");
+    element.setAttribute("data-original-title", msg);
+    $(element).tooltip("show");
+    element.setAttribute("data-original-title", tooltipOriginalTitle);
   }
 
   if(ClipboardJS.isSupported()) {
     $(document).ready(function() {
-      var copyButton = "<button type='button' class='btn btn-primary btn-copy-ex' type = 'submit' title='Copy to clipboard' aria-label='Copy to clipboard' data-toggle='tooltip' data-placement='left auto' data-trigger='hover' data-clipboard-copy><i class='fa fa-copy'></i></button>";
+      var copyButton = "<button type='button' class='btn btn-dark btn-copy-ex mt-1 mr-1' type = 'submit' title='Copy to clipboard' aria-label='Copy to clipboard' data-toggle='tooltip' data-placement='left' data-trigger='hover' data-clipboard-copy><i class='fa fa-copy'></i></button>";
 
       $(".examples, div.sourceCode").addClass("hasCopyButton");
 
@@ -91,23 +79,23 @@
       $(copyButton).prependTo(".hasCopyButton");
 
       // Initialize tooltips:
-      $('.btn-copy-ex').tooltip({container: 'body'});
+      $(".btn-copy-ex").tooltip({container: "body"});
 
       // Initialize clipboard:
-      var clipboardBtnCopies = new ClipboardJS('[data-clipboard-copy]', {
+      var clipboardBtnCopies = new ClipboardJS("[data-clipboard-copy]", {
         text: function(trigger) {
           return trigger.parentNode.textContent;
         }
       });
 
-      clipboardBtnCopies.on('success', function(e) {
-        changeTooltipMessage(e.trigger, 'Copied!');
+      clipboardBtnCopies.on("success", function(e) {
+        changeTooltipMessage(e.trigger, "Copied!");
         e.clearSelection();
       });
 
-      clipboardBtnCopies.on('error', function() {
-        changeTooltipMessage(e.trigger,'Press Ctrl+C or Command+C to copy');
+      clipboardBtnCopies.on("error", function() {
+        changeTooltipMessage(e.trigger,"Press Ctrl+C or Command+C to copy");
       });
     });
   }
-})(window.jQuery || window.$)
+})(window.jQuery || window.$);

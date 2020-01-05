@@ -54,7 +54,7 @@ data_home <- function(pkg = ".") {
   print_yaml(list(
     pagetitle = pkg$meta$home[["title"]] %||%
       cran_unquote(pkg$desc$get("Title")[[1]]),
-    sidebar = data_home_sidebar(pkg),
+    sections = data_home_sidebar(pkg),
     opengraph = list(description = pkg$meta$home[["description"]] %||%
                        cran_unquote(pkg$desc$get("Description")[[1]]))
   ))
@@ -65,13 +65,12 @@ data_home_sidebar <- function(pkg = ".") {
   if (!is.null(pkg$meta$home$sidebar))
     return(pkg$meta$home$sidebar)
 
-  paste0(
+  c(
     data_home_sidebar_links(pkg),
     data_home_sidebar_license(pkg),
     data_home_sidebar_community(pkg),
     data_home_sidebar_citation(pkg),
-    data_home_sidebar_authors(pkg),
-    collapse = "\n"
+    data_home_sidebar_authors(pkg)
   )
 }
 
@@ -92,17 +91,19 @@ data_home_sidebar_links <- function(pkg = ".") {
   sidebar_section("Links", links)
 }
 
+#' @importFrom htmltools HTML
 sidebar_section <- function(heading, bullets, class = make_slug(heading)) {
   if (length(bullets) == 0)
     return(character())
 
-  paste0(
-    "<div class='", class, "'>\n",
-    "<h2>", heading, "</h2>\n",
-    "<ul class='list-unstyled'>\n",
-    paste0("<li>", bullets, "</li>\n", collapse = ""),
-    "</ul>\n",
-    "</div>\n"
+  as.character(
+    tags$div(
+      class = class,
+      tags$dl(
+        tags$dt(heading),
+        lapply(bullets, function(bullet) tags$dd(HTML(bullet)))
+      )
+    )
   )
 }
 

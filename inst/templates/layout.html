@@ -2,22 +2,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  {{{ head }}}
+    {{{ head }}}
   </head>
 
   <body>
-    <div class="container template-{{template}}">
-      <header>
+    <header class="fixed-top shadow-sm">
       {{{ navbar }}}
       {{{ header }}}
-      </header>
+    </header>
 
-{{{ content }}}
+    <main>
+      <div class="container template-{{template}}">
+        {{{ content }}}
+      </div>
+    </main>
 
-      <footer>
+    <footer>
       {{{ footer }}}
-      </footer>
-   </div>
+    </footer>
 
   {{{ docsearch }}}
 

@@ -1,11 +1,19 @@
-<div class="row">
-  <div class="contents col-md-9">
-{{{index}}}
-  </div>
+<script>
+  $(function() {
+    $(document.querySelectorAll(".hasCopyButton")).addClass("collapse");
+  });
+</script>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    {{#sidebar}}
-    {{{.}}}
-    {{/sidebar}}
+<div class="row">
+  <div class="col">
+    {{{index}}}
   </div>
+</div>
+
+<div class="row">
+  {{#sections}}
+  <div class="col">
+    {{{.}}}
+  </div>
+  {{/sections}}
 </div>

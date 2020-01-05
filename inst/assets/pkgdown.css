@@ -13,39 +13,24 @@
  *
  */
 
-html, body {
-  height: 100%;
+body {
+  height: 100vh;
 }
 
-body > .container {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
+header {
+
 }
 
-body > .container .row {
-  flex: 1 0 auto;
+main {
+  margin-top: 56px;
 }
 
 footer {
   margin-top: 45px;
-  padding: 35px 0 36px;
   border-top: 1px solid #e5e5e5;
   color: #666;
   display: flex;
   flex-shrink: 0;
-}
-footer p {
-  margin-bottom: 0;
-}
-footer div {
-  flex: 1;
-}
-footer .pkgdown {
-  text-align: right;
-}
-footer p {
-  margin-bottom: 0;
 }
 
 img.icon {
@@ -54,11 +39,6 @@ img.icon {
 
 img {
   max-width: 100%;
-}
-
-/* Fix bug in bootstrap (only seen in firefox) */
-summary {
-  display: list-item;
 }
 
 /* Typographic tweaking ---------------------------------*/
@@ -158,11 +138,15 @@ table {
 pre {
   word-wrap: normal;
   word-break: normal;
-  border: 1px solid #eee;
 }
 
-pre, code {
-  background-color: #f8f8f8;
+code {
+  font-family: 'Source Code Pro';
+}
+
+pre,
+code {
+  background-color: #fffbf4;
   color: #333;
 }
 
@@ -182,19 +166,48 @@ pre .img img {
   height: auto;
 }
 
-code a, pre a {
-  color: #375f84;
+.usage,
+pre.examples,
+pre.r {
+  padding: .5rem .75rem;
+  border-left: 3px solid var(--dark);
+  border-radius: 3px;
 }
 
 a.sourceLine:hover {
   text-decoration: none;
 }
 
-.fl      {color: #1514b5;}
-.fu      {color: #000000;} /* function */
-.ch,.st  {color: #036a07;} /* string */
-.kw      {color: #264D66;} /* keyword */
-.co      {color: #888888;} /* comment */
+code a,
+pre a {
+  font-weight: 900;
+  color: #212529;
+}
+
+.fl {
+  color: #212529;
+}
+
+.fu {  /* function */
+  font-weight: 700;
+  color: #212529;
+}
+
+.ch,
+.st {  /* string */
+  font-weight: 500;
+  color: #212529;
+}
+
+.kw,
+.ot { /* keyword */
+  font-weight: 700;
+  color: #212529;
+}
+
+.co { /* comment */
+  color: #f44119;
+}
 
 .message { color: black;   font-weight: bolder;}
 .error   { color: orange;  font-weight: bolder;}
@@ -215,19 +228,6 @@ a.sourceLine:hover {
 
 .hasCopyButton:hover button.btn-copy-ex {
   visibility: visible;
-}
-
-/* headroom.js ------------------------ */
-
-.headroom {
-  will-change: transform;
-  transition: transform 200ms linear;
-}
-.headroom--pinned {
-  transform: translateY(0%);
-}
-.headroom--unpinned {
-  transform: translateY(-100%);
 }
 
 /* mark.js ----------------------------*/
