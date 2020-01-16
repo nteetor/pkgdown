@@ -166,9 +166,7 @@ pre .img img {
   height: auto;
 }
 
-.usage,
-pre.examples,
-pre.r {
+pre {
   padding: .5rem .75rem;
   border-left: 3px solid var(--dark);
   border-radius: 3px;
