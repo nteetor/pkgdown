@@ -6,12 +6,14 @@
 
     {{#sections}}
     <div class="section {{class}}">
-      <h3>{{title}}</h3>
+      <h3 class="ml-3">{{title}}</h3>
       <p class="section-desc">{{{desc}}}</p>
 
-      <ul>
+      <ul class="nav">
         {{#contents}}
-        <li><a href="{{path}}">{{title}}</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path}}">{{title}}</a>
+        </li>
         {{/contents}}
       </ul>
     </div>

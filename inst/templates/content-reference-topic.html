@@ -1,7 +1,7 @@
 <div class="row">
   <div class="contents col-md-9 col-12">
     <div class="page-header">
-      <h1>{{{title}}}</h1>
+      <h1 class="display-4">{{{title}}}</h1>
       {{#source}}<small class="dont-index">{{{.}}}</small>{{/source}}
       <div class="d-none name"><code>{{filename}}</code></div>
     </div>
@@ -19,23 +19,32 @@
     {{/usage}}
 
     {{#has_args}}
-    <h2 class="hasAnchor" id="arguments">
+    <h3 class="hasAnchor pt-5 mt-n5" id="arguments">
       <a class="anchor" href="#arguments"></a>
       Arguments
-    </h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    {{#arguments}}
-    <tr>
-      <th>{{{name}}}</th>
-      <td>{{{description}}}</td>
-    </tr>
-    {{/arguments}}
-    </table>
+    </h3>
+
+    <div class="container">
+      {{#arguments}}
+      <div class="row mb-2">
+        <div class="col-md-3 col-12">
+          <p class="mb-0 text-md-right font-weight-bolder">
+            {{{name}}}
+          </p>
+        </div>
+        <div class="col-md-9 col-12">
+          {{{description}}}
+        </div>
+      </div>
+      {{/arguments}}
+    </div>
     {{/has_args}}
 
     {{#sections}}
-    <h2 class="hasAnchor" id="{{slug}}"><a class="anchor" href="#{{slug}}"></a>{{{title}}}</h2>
+    <h3 class="hasAnchor pt-5 mt-n5" id="{{slug}}">
+      <a class="anchor" href="#{{slug}}"></a>
+      {{{title}}}
+    </h3>
 
     {{#contents}}
     {{{.}}}
@@ -43,12 +52,16 @@
     {{/sections}}
 
     {{#examples}}
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <h3 class="hasAnchor pt-5 mt-n5" id="examples">
+      <a class="anchor" href="#examples"></a>
+      Examples
+    </h3>
     <pre class="examples">{{{ . }}}</pre>
     {{/examples}}
   </div>
-  <div class="col-md-3 d-md-block d-none" id="pkgdown-sidebar">
-    <h2>Contents</h2>
+
+  <div class="col-md-3 d-md-block d-none mt-md-3">
+    <h4 class="m-0 ml-3">Contents</h4>
     <ul class="nav nav-pills flex-column">
       {{#has_args}}
       <li class="nav-item"><a class="nav-link" href="#arguments">Arguments</a></li>
@@ -62,7 +75,7 @@
     </ul>
 
     {{#author}}
-    <h2>Author</h2>
+    <h3>Author</h3>
     {{{ author }}}
     {{/author}}
   </div>

@@ -3,7 +3,7 @@
     <h1 class="display-4">Reference</h1>
 
     {{#sections}}
-      <h2 id="{{slug}}">{{title}}</h2>
+      <h3 class="pt-5 mt-n5" id="{{slug}}">{{title}}</h3>
       <div class="text-muted">
         {{{desc}}}
       </div>
@@ -26,8 +26,8 @@
     {{/sections}}
   </div>
 
-  <div class="col-md-2 d-md-block d-none" id="pkgdown-sidebar">
-    <h5 class="ml-3">Contents</h5>
+  <div class="col-md-2 d-md-block d-none mt-md-3">
+    <h4 class="m-0 ml-3">Contents</h4>
     <ul class="nav nav-pills flex-column">
       {{#sections}}
       <li class="nav-item">

@@ -10,15 +10,16 @@
     {{/contents}}
   </div>
 
-  <div class="col-md-3 d-md-block d-none" id="pkgdown-sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills flex-column">
+  <div class="col-md-3 d-md-block d-none mt-md-3">
+    <h4 class="m-0 ml-3">Contents</h4>
+    <ul class="nav nav-pills flex-column">
       {{#contents}}
-        <li><a href="#{{{anchor}}}">{{{version}}}</a></li>
+      <li class="nav-item">
+        <a class="nav-link"
+           href="#{{{anchor}}}">{{{version}}}</a>
+      </li>
       {{/contents}}
-      </ul>
-    </div>
+    </ul>
   </div>
 
 </div>

@@ -13,25 +13,25 @@
     </sup>
   </span>
 
-  <div id="navbar" class="navbar-collapse collapse">
+  <div class="navbar-collapse collapse">
     {{#left}}
-    <ul class="navbar-nav mr-auto">
-      {{{.}}}
-    </ul>
-    {{/left}}
-    {{#right}}
     <ul class="navbar-nav ml-auto">
       {{{.}}}
     </ul>
-    {{/right}}
+    {{/left}}
     {{#yaml}}{{#docsearch}}
-    <form class="form-inline d-inline-block-sm d-none" role="search">
-      <input type="search" class="form-control"
+    <form class="form-inline d-sm-inline-block d-none mx-sm-3" role="search">
+      <input type="search" class="form-control form-control-sm"
              name="search-input" id="search-input"
              placeholder="Search..."
              aria-label="Search for..." autocomplete="off">
     </form>
     {{/docsearch}}{{/yaml}}
+    {{#right}}
+    <ul class="navbar-nav">
+      {{{.}}}
+    </ul>
+    {{/right}}
   </div>
 
 </nav><!--/.navbar -->

@@ -47,16 +47,14 @@ $endfor$
 $body$
   </div>
 
-  <div class="col-md-3 d-md-block d-none" id="pkgdown-sidebar">
+  <div class="col-md-3 d-md-block d-none mt-md-3">
     {{#sidebar}}
     {{{.}}}
     {{/sidebar}}
 
     $if(toc)$
-    <div id="tocnav">
-      <h2>Contents</h2>
-      $toc$
-    </div>
+    <h4 class="m-0 ml-3">Contents</h4>
+    $toc$
     $endif$
   </div>
 

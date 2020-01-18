@@ -41,13 +41,12 @@ img {
   max-width: 100%;
 }
 
-/* Typographic tweaking ---------------------------------*/
-
-.contents .page-header {
-  margin-top: calc(-60px + 1em);
+/* Navbar --- */
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--light);
 }
 
-/* Section anchors ---------------------------------*/
+/* Section anchors --------------------------------- */
 
 a.anchor {
   margin-left: -30px;
@@ -70,36 +69,6 @@ a.anchor {
   .hasAnchor:hover a.anchor {
     visibility: hidden;
   }
-}
-
-
-/* Fixes for fixed navbar --------------------------*/
-
-.contents h1, .contents h2, .contents h3, .contents h4 {
-  padding-top: 60px;
-  margin-top: -40px;
-}
-
-/* Sidebar --------------------------*/
-
-#pkgdown-sidebar {
-  margin-top: 30px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 70px;
-}
-
-#pkgdown-sidebar h2 {
-  font-size: 1.5em;
-  margin-top: 1em;
-}
-
-#pkgdown-sidebar h2:first-child {
-  margin-top: 0;
-}
-
-#pkgdown-sidebar .list-unstyled li {
-  margin-bottom: 0.5em;
 }
 
 .orcid {
