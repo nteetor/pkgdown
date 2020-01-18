@@ -2,24 +2,24 @@ Package: pkgdown
 Title: Make Static HTML Documentation for a Package
 Version: 1.4.1.3030
 Authors@R: c(
-    person("Hadley", "Wickham", , "hadley@rstudio.com", role = c("aut", "cre"), 
+    person("Hadley", "Wickham", , "hadley@rstudio.com", role = c("aut", "cre"),
       comment = c(ORCID = "0000-0003-4757-117X")
     ),
-    person("Jay", "Hesselberth", role = "aut", 
+    person("Jay", "Hesselberth", role = "aut",
       comment = c(ORCID = "0000-0002-6299-179X")
     ),
     person("Nathan", "Teetor", role = "ctb"),
     person("RStudio", role = c("cph", "fnd"))
     )
 Description: Generate an attractive and useful website from a source package.
-    'pkgdown' converts your documentation, vignettes, 'README', and more to 
+    'pkgdown' converts your documentation, vignettes, 'README', and more to
     'HTML' making it easy to share information about your package online.
 License: MIT + file LICENSE
 URL: https://pkgdown.r-lib.org, https://github.com/r-lib/pkgdown
 BugReports: https://github.com/r-lib/pkgdown/issues
-Depends: 
+Depends:
     R (>= 3.1.0)
-Imports: 
+Imports:
     callr (>= 2.0.2),
     cli,
     crayon,
@@ -47,10 +47,10 @@ Imports:
     withr,
     xml2 (>= 1.1.1),
     yaml,
-    yonder (>= 0.2.0)
+    yonder (>= 0.3.0)
 Remotes:
-    nteetor/yonder@v0-dev
-Suggests: 
+    nteetor/yonder@v0
+Suggests:
     covr,
     htmlwidgets,
     jsonlite,
