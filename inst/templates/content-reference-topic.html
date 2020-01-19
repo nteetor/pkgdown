@@ -19,9 +19,9 @@
     {{/usage}}
 
     {{#has_args}}
-    <h3 class="hasAnchor pt-5 mt-n5" id="arguments">
+    <h2 class="hasAnchor pt-5 mt-n5" id="arguments">
       <a class="anchor" href="#arguments"></a>Arguments
-    </h3>
+    </h2>
 
     <div class="container">
       {{#arguments}}
@@ -40,9 +40,9 @@
     {{/has_args}}
 
     {{#sections}}
-    <h3 class="hasAnchor pt-5 mt-n5" id="{{slug}}">
+    <h2 class="hasAnchor pt-5 mt-n5" id="{{slug}}">
       <a class="anchor" href="#{{slug}}"></a>{{{title}}}
-    </h3>
+    </h2>
 
     {{#contents}}
     {{{.}}}
@@ -50,9 +50,9 @@
     {{/sections}}
 
     {{#examples}}
-    <h3 class="hasAnchor pt-5 mt-n5" id="examples">
+    <h2 class="hasAnchor pt-5 mt-n5" id="examples">
       <a class="anchor" href="#examples"></a>Examples
-    </h3>
+    </h2>
     <pre class="examples">{{{ . }}}</pre>
     {{/examples}}
   </div>
@@ -61,10 +61,14 @@
     <h4 class="m-0 ml-3">Contents</h4>
     <ul class="nav nav-pills flex-column">
       {{#has_args}}
-      <li class="nav-item"><a class="nav-link" href="#arguments">Arguments</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="#arguments">Arguments</a>
+      </li>
       {{/has_args}}
       {{#sections}}
-      <li class="nav-item"><a class="nav-link" href="#{{slug}}">{{{title}}}</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="#{{slug}}">{{{title}}}</a>
+      </li>
       {{/sections}}
       {{#examples}}
       <li class="nav-item"><a class="nav-link" href="#examples">Examples</a></li>
@@ -72,7 +76,7 @@
     </ul>
 
     {{#author}}
-    <h3>Author</h3>
+    <h2>Author</h2>
     {{{ author }}}
     {{/author}}
   </div>
