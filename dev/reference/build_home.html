@@ -15,19 +15,29 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -36,21 +46,18 @@
 
 <!-- docsearch -->
 <script src="../docsearch.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.1/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.3/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous" />
 <link href="../docsearch.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
 
 
+
 <meta property="og:title" content="Build home section — build_home" />
-
-<meta property="og:description" content="This function is responsible for building .md (or .Rmd) files typically
-found in the root directory of the package. It will generate the home page
-from  index.Rmd or README.Rmd, then index.md or README.md. If none of
-these are found, it falls back to the description field in DESCRIPTION. It
-also builds any files found in .github/." />
-
+<meta property="og:description" content="This function generates the home page, converts .md files found in the
+package root (and in .github/), and builds an authors page from
+DESCRIPTION and inst/CITATION (if present)." />
 <meta property="og:image" content="https://pkgdown.r-lib.org/logo.png" />
-<meta name="twitter:card" content="summary" />
+
 
 <meta name="robots" content="noindex">
 
@@ -64,9 +71,20 @@ also builds any files found in .github/." />
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115082821-1');
+</script>
+
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -80,19 +98,13 @@ also builds any files found in .github/." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pkgdown</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.3.0.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.6.1.9000</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/pkgdown.html">Get started</a>
 </li>
 <li>
@@ -106,48 +118,56 @@ also builds any files found in .github/." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/test/crayon.html">Test: crayon</a>
+      <a href="../articles/linking.html">Auto-linking</a>
     </li>
     <li>
-      <a href="../articles/test/details.html">Test: Details tag</a>
+      <a href="../articles/search.html">Search</a>
     </li>
     <li>
-      <a href="../articles/test/external.html">Test: External file tests</a>
+      <a href="../articles/metadata.html">Metadata</a>
     </li>
+    <li class="divider"></li>
     <li>
-      <a href="../articles/test/figures.html">Test: Figures</a>
-    </li>
-    <li>
-      <a href="../articles/test/highlight.html">Test: Highlighting</a>
-    </li>
-    <li>
-      <a href="../articles/test/jss.pdf">Test: JSS article (PDF)</a>
-    </li>
-    <li>
-      <a href="../articles/test/mathjax.html">Test: Mathjax</a>
-    </li>
-    <li>
-      <a href="../articles/test/output.html">Test: Custom output</a>
-    </li>
-    <li>
-      <a href="../articles/test/pdf.pdf">Test: PDF (PDF)</a>
-    </li>
-    <li>
-      <a href="../articles/test/table.html">Test: Table</a>
-    </li>
-    <li>
-      <a href="../articles/test/widget.html">Test: Widgets</a>
+      <a href="../articles/index.html">More...</a>
     </li>
   </ul>
 </li>
-<li>
-  <a href="../news/index.html">Changelog</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Releases</li>
+    <li>
+      <a href="https://www.tidyverse.org/blog/2020/09/pkgdown-1-6-0/">Version 1.6.0</a>
+    </li>
+    <li>
+      <a href="https://www.tidyverse.org/blog/2020/03/pkgdown-1-5-0/">Version 1.5.0</a>
+    </li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2019/09/pkgdown-1-4-0/">Version 1.4.0</a>
+    </li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2018/12/pkgdown-1-3-0/">Version 1.3.0</a>
+    </li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2018/06/pkgdown-1-1-0/">Version 1.1.0</a>
+    </li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2018/05/pkgdown-1-0-0/">Version 1.0.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Changelog</a>
+    </li>
+  </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/r-lib/pkgdown">
+  <a href="https://github.com/r-lib/pkgdown/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -165,6 +185,7 @@ also builds any files found in .github/." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -176,18 +197,13 @@ also builds any files found in .github/." />
     </div>
 
     <div class="ref-description">
-    
-    <p>This function is responsible for building <code>.md</code> (or <code>.Rmd</code>) files typically
-found in the root directory of the package. It will generate the home page
-from  <code>index.Rmd</code> or <code>README.Rmd</code>, then <code>index.md</code> or <code>README.md</code>. If none of
-these are found, it falls back to the description field in <code>DESCRIPTION</code>. It
-also builds any files found in <code>.github/</code>.</p>
-    
+    <p>This function generates the home page, converts <code>.md</code> files found in the
+package root (and in <code>.github/</code>), and builds an authors page from
+<code>DESCRIPTION</code> and <code>inst/CITATION</code> (if present).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>build_home</span>(<span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(), <span class='kw'>preview</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
-  <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>build_home</span><span class='op'>(</span>pkg <span class='op'>=</span> <span class='st'>"."</span>, override <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>, preview <span class='op'>=</span> <span class='cn'>NA</span>, quiet <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -211,35 +227,100 @@ freshly generated section in browser.</p></td>
 pandoc. This is useful when debugging.</p></td>
     </tr>
     </table>
+
+    <h2 class="hasAnchor" id="home-page"><a class="anchor" href="#home-page"></a>Home page</h2>
+
     
+
+<p>The home page (<code>index.html</code>) is generated from <code>_pkgdown/index.md</code>,
+<code>index.md</code>, or <code>README.md</code>, in that order. Most packages will use <code>README.md</code>
+because that's also displayed by GitHub and CRAN. Use <code>index.md</code> if you want
+your package website to look different to your README, and use
+<code>_pkgdown/index.md</code> if you don't want that file to live in your package
+root directory.</p>
+<p>If you use <code>index.Rmd</code> or <code>README.Rmd</code> it's your responsibility to knit
+the document to create the corresponding <code>.md</code>. pkgdown does not do this
+for you because it only touches files in the <code>doc/</code> directory.</p>
+    <h2 class="hasAnchor" id="sidebar"><a class="anchor" href="#sidebar"></a>Sidebar</h2>
+
+    
+
+<p>The sidebar is automatically populated with:</p><ul>
+<li><p>Development status badges found in <code>README.md</code>/<code>index.md</code>. pkgdown
+identifies badges in three ways:</p><ul>
+<li><p>Any image-containing links between <code>&lt;!-- badges: start --&gt;</code> and
+<code>&lt;!-- badges: end --&gt;</code>, as e.g. created by <code><a href='https://usethis.r-lib.org/reference/use_readme_rmd.html'>usethis::use_readme_md()</a></code>
+or <code><a href='https://usethis.r-lib.org/reference/use_readme_rmd.html'>usethis::use_readme_rmd()</a></code>.</p></li>
+<li><p>Any image-containing links within <code>&lt;div id="badges"&gt;&lt;/div&gt;</code>.</p></li>
+<li><p>Within the first paragraph, if it only contains image-containing links.</p></li>
+</ul></li>
+<li><p>A link for bug reports is added if the <code>BugReports</code> field in
+<code>DESCRIPTION</code> contains a link. You can use <code><a href='https://usethis.r-lib.org/reference/use_github_links.html'>usethis::use_github_links()</a></code>
+to populate this field.</p></li>
+<li><p>Licensing information if <code>LICENSE</code>/<code>LICENCE</code> or <code>LICENSE.md</code>/<code>LICENCE.md</code>
+files are present.</p></li>
+<li><p>Community information is linked in the side bar using the
+<code>.github/CONTRIBUTING.md</code> and <code>.github/CODE_OF_CONDUCT.md</code> files,
+if present.</p></li>
+<li><p>Extra markdown files in the base directory or in <code>.github/</code> are copied
+to <code>docs/</code> and converted to HTML.</p></li>
+<li><p>Citation information from a <code>inst/CITATION</code> file is linked in the side bar
+to the <a href='https://testthat.r-lib.org/authors.html'>authors page</a>.</p></li>
+<li><p>Author ORCID identification numbers in the <code>DESCRIPTION</code> are linked under
+"Developers" using the ORCID logo:</p><pre><span class='va'>Authors</span><span class='op'>@</span><span class='va'>R</span><span class='op'>:</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+    <span class='fu'><a href='https://rdrr.io/r/utils/person.html'>person</a></span><span class='op'>(</span><span class='st'>"Hadley"</span>, <span class='st'>"Wickham"</span>, , <span class='st'>"hadley@rstudio.com"</span>, role <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"aut"</span>, <span class='st'>"cre"</span><span class='op'>)</span>,
+      comment <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>ORCID <span class='op'>=</span> <span class='st'>"0000-0003-4757-117X"</span><span class='op'>)</span>
+    <span class='op'>)</span>,
+    <span class='fu'><a href='https://rdrr.io/r/utils/person.html'>person</a></span><span class='op'>(</span><span class='st'>"Jay"</span>, <span class='st'>"Hesselberth"</span>, role <span class='op'>=</span> <span class='st'>"aut"</span>,
+      comment <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>ORCID <span class='op'>=</span> <span class='st'>"0000-0002-6299-179X"</span><span class='op'>)</span>
+    <span class='op'>)</span>
+  <span class='op'>)</span>
+</pre></li>
+</ul>
+
     <h2 class="hasAnchor" id="images-and-figures"><a class="anchor" href="#images-and-figures"></a>Images and figures</h2>
 
     
-    <p>If you want to include images in your <code>README.md</code>, they must be stored in
+
+<p>If you want to include images in your <code>README.md</code>, they must be stored
 somewhere in the package so that they can be displayed on the CRAN website.
 The best place to put them is <code>man/figures</code>. If you are generating figures
-with R Markdown, make sure you set up <code>fig.path</code> as followed:</p>
-<pre>
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  fig.path = "man/figures/"
-)
-```
+with R Markdown, make sure you set up <code>fig.path</code> as followed:</p><pre><span class='fu'>knitr</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/knitr/man/opts_chunk.html'>opts_chunk</a></span><span class='op'>$</span><span class='fu'>set</span><span class='op'>(</span>
+  fig.path <span class='op'>=</span> <span class='st'>"man/figures/"</span>
+<span class='op'>)</span>
 </pre>
-    
+
+<p>This should usually go in a block with <code>include = FALSE</code>.</p>
     <h2 class="hasAnchor" id="package-logo"><a class="anchor" href="#package-logo"></a>Package logo</h2>
 
     
-    <p>If you have a package logo, you can include it at the top of your README in a
-level-one heading:</p><pre># pkgdown &lt;img src="man/figures/logo.png" align="right" /&gt;
+
+<p>If you have a package logo, you can include it at the top of your README in a
+level-one heading:</p><pre><span class='co'># pkgdown &lt;img src="man/figures/logo.png" align="right" /&gt;</span>
 </pre>
-    <p><code><a href='init_site.html'>init_site()</a></code> will also automatically create a favicon set from your package
+
+<p><code><a href='init_site.html'>init_site()</a></code> will also automatically create a favicon set from your package
 logo.</p>
-    
     <h2 class="hasAnchor" id="yaml-config-home"><a class="anchor" href="#yaml-config-home"></a>YAML config - home</h2>
 
     
-    <p>To tweak the home page, you need a section called <code>home</code>.</p>
+
+<p>To tweak the home page, you need a section called <code>home</code>.</p>
+<p>By default, the page title and description are extracted automatically
+from the <code>Title</code> and <code>Description</code> fields <code>DESCRIPTION</code> (stripping
+single quotes off quoted words). CRAN ensures that these fields don't contain
+phrases like "R package" because that's obvious on CRAN. To make your
+package more findable with google, it's good practice to override the
+<code>title</code> and <code>description</code>, thinking about what people might search for:</p><pre>home:
+  title: An R package for pool-noodle discovery
+  description: &gt;
+    Do you love R? Do you love pool-noodles? If so, you might enjoy
+    using this package to automatically discover and add pool-noodles
+    to your growing collection.
+</pre>
+
+<p>(Note the use of YAML's <code>&gt;</code>; this is a convenient way of writing paragraphs
+of text.)</p>
 <p>The sidebar links are automatically generated by inspecting the <code>URL</code> and
 <code>BugReports</code> fields of the <code>DESCRIPTION</code>. You can add additional links with a
 subsection called <code>links</code>, which should contain a list of <code>text</code> + <code>href</code>
@@ -248,67 +329,41 @@ elements:</p><pre>home:
   - text: Link text
     href: http://website.com
 </pre>
-    <p>You can remove the first heading with:</p><pre>home:
-  strip_header: true
+
+<p>READMEs usually start with an <code>&lt;h1&gt;</code> containing the package name. If
+that feels duplicative with the package name in the navbar you can
+remove it with <code>strip_header: true</code>:</p><pre><span class='va'>home</span><span class='op'>:</span>
+  <span class='va'>strip_header</span><span class='op'>:</span> <span class='va'>true</span>
 </pre>
-    
+
     <h2 class="hasAnchor" id="yaml-config-authors"><a class="anchor" href="#yaml-config-authors"></a>YAML config - authors</h2>
 
     
-    <p>The "developers" list is populated by the maintainer ("cre"), authors
+
+<p>The "developers" list is populated by the maintainer ("cre"), authors
 ("aut"), and funder ("fnd") from the <code>DESCRIPTION</code>. You can modify their
-display on the home page by adding a subsection for <code>authors</code>. The author
-name should match the value in <code>DESCRIPTION</code>:</p><pre>authors:
-  name:
+display on the home page by adding a subsection for <code>authors</code>. Each entry
+in <code>authors</code> should be named with the author's name (matching <code>DESCRIPTION</code>)
+and can contain <code>href</code> and/or <code>html</code> fields:</p><ul>
+<li><p>If <code>href</code> is provided, the author's name will be linked to this url.</p></li>
+<li><p>If <code>html</code> is provided, it will be shown instead of the author's name.
+This is particularly useful if you want to display the logo of a corporate
+sponsor.</p></li>
+</ul><pre>authors:
+  firstname lastname:
     href: "http://name-website.com"
     html: "&lt;img src='name-picture.png' height=24&gt;"
 </pre>
-    
-    <h2 class="hasAnchor" id="orcid"><a class="anchor" href="#orcid"></a>ORCID</h2>
 
-    
-    <p>ORCID identification numbers are added to author info if they
-are defined in the <code>DESCRIPTION</code>:</p><pre>person("Jay", "Hesselberth", role = "aut",
-  comment = c(ORCID = "0000-0002-6299-179X")
-),
-</pre>
-    
-    <h2 class="hasAnchor" id="badges"><a class="anchor" href="#badges"></a>Badges</h2>
-
-    
-    <p>Status badges are displayed in the sidebar under the section "Dev status".
-This section is automatically populated if there is an identifiable badges
-paragraph in the homepage source (index.Rmd, index.md, README.Rmd,
-README.md):</p><ul>
-<li><p>pkgdown first looks for a paragraph starting with <code>&lt;!-- badges: start --&gt;</code>
-and ending with <code>&lt;!-- badges: end --&gt;</code> as created by
-<code><a href='https://usethis.r-lib.org/reference/use_readme_rmd.html'>usethis::use_readme_md()</a></code> or <code><a href='https://usethis.r-lib.org/reference/use_readme_rmd.html'>usethis::use_readme_rmd()</a></code>;</p></li>
-<li><p>failing that, pkgdown looks at the first paragraph, and uses it if it
-only contains images.</p></li>
-</ul>
-    
 
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#images-and-figures">Images and figures</a></li>
-
-      <li><a href="#package-logo">Package logo</a></li>
-
-      <li><a href="#yaml-config-home">YAML config - home</a></li>
-
-      <li><a href="#yaml-config-authors">YAML config - authors</a></li>
-
-      <li><a href="#orcid">ORCID</a></li>
-
-      <li><a href="#badges">Badges</a></li>
-          </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -316,8 +371,9 @@ only contains images.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
+
       </footer>
    </div>
 
@@ -340,6 +396,8 @@ only contains images.</p></li>
 </script>
 
 
+
   </body>
 </html>
+
 

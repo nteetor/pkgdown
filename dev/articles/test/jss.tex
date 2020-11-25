@@ -1,4 +1,9 @@
-\documentclass[article,nojss]{jss}
+% To remove when JSS.cls is fixed
+% https://github.com/rstudio/rticles/issues/329
+\RequirePackage[2020/02/02]{latexrelease}
+\documentclass[
+  nojss]{jss}
+
 \usepackage[utf8]{inputenc}
 
 \providecommand{\tightlist}{%
@@ -7,11 +12,11 @@
 \author{
 FirstName LastName\\University/Company \And Second Author\\Affiliation
 }
-\title{Test: JSS article}
+\title{JSS article}
 
 \Plainauthor{FirstName LastName, Second Author}
-\Plaintitle{Test: JSS article}
-\Shorttitle{Test: JSS article}
+\Plaintitle{JSS article}
+\Shorttitle{JSS article}
 
 \Abstract{
 The abstract of the article.
@@ -30,11 +35,13 @@ The abstract of the article.
 
 \Address{
     FirstName LastName\\
-  University/Company\\
-  First line Second line\\
+    University/Company\\
+    First line Second line\\
   E-mail: \email{name@company.com}\\
-  URL: \url{http://rstudio.com}\\~\\
+  URL: \url{https://rstudio.com}\\~\\
     }
+
+% Pandoc citation processing
 
 % Pandoc header
 
@@ -48,12 +55,10 @@ The abstract of the article.
 Some text and a reference \citep{JSSv059i10}.
 
 \begin{CodeChunk}
-
 \begin{CodeInput}
 R> 1 +
-R+   2
++   2
 \end{CodeInput}
-
 \begin{CodeOutput}
 [1] 3
 \end{CodeOutput}
